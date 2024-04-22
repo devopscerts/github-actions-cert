@@ -40,4 +40,7 @@ jobs:
       - name: Testing Custom Environment Varialbes
         run: echo "Nice work, $First_Name. Deploying to production server on branch $GITHUB_REF"
         env:
-          First_Name: Mona
+          First_Name: "Hector Jimenez"
+      - name: Run build script
+        run: ./.github/scripts/test.sh
+        shell: bash
