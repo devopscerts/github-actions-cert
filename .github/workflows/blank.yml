@@ -35,7 +35,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-      - run: echo "Nice work, $First_Name. Deploying to production server on branch $GITHUB_REF"
-        env:
-          First_Name: HectorJimenez
