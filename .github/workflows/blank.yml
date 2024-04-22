@@ -41,6 +41,9 @@ jobs:
         run: echo "Nice work, $First_Name. Deploying to production server on branch $GITHUB_REF"
         env:
           First_Name: "Hector Jimenez"
+          ACTIONS_RUNNER_DEBUG: true
+          ACTIONS_STEP_DEBUG: true
+          
       - name: Run build script
         run: ./.github/scripts/test.sh
         shell: bash
