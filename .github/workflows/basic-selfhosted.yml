@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI-Self
+name: CI-Self Hosted
 
 # Controls when the workflow will run
 on:
@@ -35,3 +35,20 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      
+      - name: Set color
+        id: color-selector
+        run: |
+          echo "NAME=HectorJ" >> "$GITHUB_OUTPUT"
+          echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+          echo "HOUR=$(date)">> "$GITHUB_OUTPUT"
+        
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
+        
+      - name: Get Name
+        env:
+          NAME: ${{ steps.color-selector.outputs.NAME }}
+        run: echo "The name is $NAME"
