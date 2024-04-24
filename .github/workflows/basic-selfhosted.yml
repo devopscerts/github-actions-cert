@@ -42,7 +42,8 @@ jobs:
           echo "NAME=HectorJ" >> "$GITHUB_OUTPUT"
           echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
           echo "HOUR=$(date)">> "$GITHUB_OUTPUT"
-        
+      #use the output from a command in the previous step.
+      
       - name: Get color
         env:
           SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
@@ -52,3 +53,12 @@ jobs:
         env:
           NAME: ${{ steps.color-selector.outputs.NAME }}
         run: echo "The name is $NAME"
+      # Testing Workflow Commands : 
+      
+      - name: Test Masking
+        run: |
+          echo '::add-mask::test'
+          echo This is a test
+
+      - name: Create annotation for build error
+        run: echo "::error file=app.js,line=1::Missing semicolon"
